@@ -1,61 +1,76 @@
+// external or 3rd party dependencies 
 var express = require('express');
 var bodyParser = require('body-parser');
-var multer = require('multer');
-var upload = multer();
-var app = express();
-var login = require('./login.js');
-var mywallet = require('./wallet.js');
+var ejs = require('ejs');
+var path = require('path');
 
-app.get('/', function(req, res){
- //  res.sendFile(__dirname + '/index.html');
-    res.render('index')
-});
+// dependencies for cookies & session
+var expressValidator = require('express-validator');
+var session = require('express-session');
+var passport = require('passport');
+var localStrategy = require('passport-local');
+var flash = require('connect-flash');
 
-app.get('/Register', function(req, res){
-    res.render('register', { title: 'register' })
-});
+// Internal Depencies
+const mywallet = require('./wallet.js');
+const myroutes = require('./routes.js');
 
-app.get('/login', function(req, res){
-    res.render('login');
-});
+// -------- Project code Begins  -------- 
+var app = module.exports = express();
 
+// Set View engine to render ejs & html 
+app.set('views',path.join(__dirname,'views'));
+app.set('view engine','ejs');
+app.engine('html',ejs.renderFile);
 
-//    res.render('wallet')
-//});
+// set static folder 
+app.use(express.static(path.join(__dirname,'client')));
 
-app.set('view engine', 'pug');
-app.set('views', './views');
+// body parser middleware 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
 
-// for parsing application/json
-app.use(bodyParser.json()); 
+//express session middleware
+app.use(session({
+    secret : '|___(my)__(f***ing)__(secret)___|',
+    saveUninitialized : true,
+    resave : false,
+    cookie:{}
+}));
 
-// for parsing application/xwww-
-app.use(bodyParser.urlencoded({ extended: true })); 
-//form-urlencoded
+//passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.post('/', function(req, res){
-    console.log(req.body);
- 
-    if(login.user_login(req.body.address,req.body.password) == true)
-    {
-     res.render('wallet', { title: 'register' });
+// express validator middleware
+app.use(expressValidator({
+    errorFormatter : function(param,msg,value){
+        var namespace = param.split('.'),
+        root = namespace.shift(),
+        formParam = root;
+        while (namespace.length) {
+            formParam += '[' + namespace.shift() + ']';
+        }
+        return {
+            param : formParam,
+            msg : msg,
+            value : value
+        }
     }
-    else
-    {
-        res.send("Please enter correct credentials & try again");
-    }
-});
+}));
 
-app.get('/Register', function(res, res){
-    res.send();
-});
+app.use(flash());
 
-// for parsing multipart/form-data
-app.use(upload.array()); 
-app.use(express.static('public'));
+app.use(function(req,res,next){
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    next();
+    });
 
-app.post('/', function(req, res){
-   console.log(req.body);
-   res.send(req.body);
+require('./routes.js')(app);
+
+app.set('port',(process.env.PORT || 3000));
+app.listen(app.get('port'),function(){
+    console.log('Server is Succesfully listening on port 3000');
 });
-app.listen(3000);

@@ -1,0 +1,32 @@
+<body>
+        <% include partials/head.ejs %>
+        <% include partials/navigation.ejs %>
+        
+        
+      <div class="container">
+          
+          <form action="/confirmLoan" method="post" class="form-signin-headline" >
+            <br/>
+            <h2 class="form-signin-heading" style="text-align: center">Please provide your password to complete the transaction</h2><hr/><br/>
+            
+            <% if(locals.login == -1){%> 
+              <h5>Please Enter a valid password</h5>
+            <%}%>
+          
+            
+            <div class="form-group">
+              <label for="wallet_id" class="sr-only">password</label>
+              <input type="password" id="pass_id" name="pass" class="form-control" placeholder="password" required autofocus><br/>
+            </div>
+            
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Complete Transaction</button>
+          </form>
+      
+      </div>
+
+          
+        
+        <% include partials/footer.ejs %>
+        
+        </body>
+        </html>

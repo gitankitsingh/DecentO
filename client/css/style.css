@@ -1,0 +1,27 @@
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+body {
+  padding-top: 3.5rem;
+  background-color: #eee;
+  
+}
+
+#address-container
+{
+}
+
+#login_box{
+  width: 25rem;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+#askLoan_box{
+  width: 25rem;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+
+#register_box{
+  width: 25rem;
+  border: 1px solid #ddd;
+  background: #fff;
+}

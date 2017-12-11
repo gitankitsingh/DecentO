@@ -1,0 +1,53 @@
+<body style="background:#fff;">
+        <% include partials/head.ejs %>
+        
+        
+        <div class="container">
+
+            <% include partials/navigation.ejs %>
+          
+          <br/>
+          <h4 class="display-6">Following users are seeking a loan</h4>
+          <br/><hr/>
+          <br/>
+      <div>
+       <table class="table table-light table-bordered table-responsive table-striped text-center">
+        <thead>
+          <tr style="text-align:center;font-size:1rem;">
+            <th scope="col">LoanId</th>
+            <th scope="col">Address</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Time</th>
+            <th scope="col">EMI</th>
+            <th scope="col">Interest</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+              <%loan_seekers.forEach(element => {%>   
+                <tr class="" style="font-size:0.9rem;">
+                <td><%=index[count]%></th>
+                <td><%=element[0]%></td>
+                <td><%=element[1]%></td>
+                <td><%=element[2]%></td>
+                <td><%=element[3]%></td>
+                <td><%=element[4]%></td>
+               <td>
+                <form method="post" action="/lendLoan">
+                <input type="hidden" name="count_val" value="<%=index[count]%>"/>
+                <input type="submit" name="bt_lend" value="Lend Loan" class="btn-primary" />
+                </form>
+              </td> 
+                </tr>
+                <%count++});%>
+        </tbody>
+      </table>
+    </div>
+  
+        
+        <% include partials/footer.ejs %>
+
+    </div>
+        
+        </body>
+        </html>

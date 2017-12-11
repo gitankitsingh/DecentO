@@ -1,0 +1,40 @@
+<body>
+        <% include partials/head.ejs %>
+        <% include partials/navigation.ejs %>
+        
+        
+        <main role="main">
+          
+              <!-- Main jumbotron for a primary marketing message or call to action -->
+                <div class="container" style="margin-top:2rem;">
+                  <h4 class="display-6" style="text-align:center;">Raise Funds for your projects</h4>
+                </div>  
+        </main>
+        <div class="container" id="login_box">
+        <form action="/croudFunding" method="post" class="form-signin-headline" >
+          <br/>
+          <h4 class="form-signin-heading" style="text-align: center">Please Fill in the following details</h4><hr/><br/>
+          <div class="form-group">
+            <label for="wallet_id" class="sr-only">Campaign Name</label>
+            <input type="text" id="wallet_id" name="campaign_name" class="form-control" placeholder="Campaign Name" required autofocus><br/>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword"  class="sr-only">Goal</label>
+            <input type="text" name="amount_required" id="inputPassword" class="form-control" placeholder="Amount Required / Goal" required><br/>
+          </div>
+
+          <div class="form-group">
+            <label for="wallet_id" class="sr-only">password</label>
+            <input type="password" id="wallet_id" name="mapass" class="form-control" placeholder="Password" required autofocus><br/>
+          </div>
+
+          <br/>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+        </div>
+          
+        
+        <% include partials/footer.ejs %>
+        
+        </body>
+        </html>

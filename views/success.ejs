@@ -1,0 +1,33 @@
+<body>
+        <% include partials/head.ejs %>
+        <% include partials/navigation.ejs %>
+        
+        
+        <main role="main">
+          
+              <!-- Main jumbotron for a primary marketing message or call to action -->
+              <div class="jumbotron">
+                <div class="container">
+                  <h2 class="display-3">Account Created Successfully</h1>
+                  <h5>Please note down your address, Once lost it cannot be recovered,<strong>this public address is used for sending & recieving funds using your wallet</strong></h3>
+                  <hr/><br/><br/>
+
+                  <% if (myaddress) { %>
+                    
+                    <h2><p>Address : </p> <%= myaddress %></h2>
+                  <% } %>
+                  
+                  
+                </div>
+              </div>
+          
+              <div class="container">
+              </div> <!-- /container -->
+          
+            </main>
+          
+        
+        <% include partials/footer.ejs %>
+        
+        </body>
+        </html>

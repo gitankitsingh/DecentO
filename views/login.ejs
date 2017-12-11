@@ -1,0 +1,45 @@
+<body>
+  <% include partials/head.ejs %>
+  <% include partials/navigation.ejs %>
+
+<div class="container" id="login_box">
+
+    <form action="/login" method="post" class="form-signin-headline" >
+            <br/>
+            <h2 class="form-signin-heading" style="text-align: center">Please sign in</h2><hr/><br/>
+            <div class="form-group">
+              <label for="wallet_id" class="sr-only">Wallet address</label>
+              <input type="text" id="wallet_id" name="wallet_id" class="form-control" placeholder="Wallet address" required autofocus><br/>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword"  class="sr-only">Password</label>
+              <input type="password" name="pass_phrase" id="inputPassword" class="form-control" placeholder="Password" required><br/>
+            </div>
+
+              <div class="checkbox">
+              <label>
+                <input type="checkbox" value="remember-me"> Remember me
+              </label>
+            </div><br/>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          </form>
+            <hr/>
+            <h5 style="text-align: center">Don't have an Account yet ?</h5><br/>
+            
+              <button class="btn btn-lg btn-danger btn-block" type="submit"><a style="color:#fff;text-decoration:none;display:block;" href="/register">Sign Up</a></button>
+          <br/>
+            
+        
+ 
+</div>
+  
+  <% include partials/footer.ejs %>
+  
+  </body>
+  </html>
+
+
+
+
+  
+

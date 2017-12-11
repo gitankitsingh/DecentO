@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">DecentO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <% if(locals.address){ %>  
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/transferFunds">Pay</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/pay">Transaction History</a>
+          </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="/askLoan">Apply for Loan</a>
+            <a class="dropdown-item" href="/lendLoan">Lend a Loan</a>
+            <a class="dropdown-item" href="croudFunding">Crowd Funding</a>
+            <a class="dropdown-item" href="/transferFunds">Send Funds</a>
+            <a class="dropdown-item" href="/requestFunds">Request Funds</a>
+          </div>
+        </li>
+      </ul>
+      <form action="/logout" method="post" class="form-inline my-2 my-lg-0">
+          <button name="lg_out_btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+        </form>
+      <%} else {%>
+
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+              </li>
+          <% if(!locals.path) {%>    
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login<span class="sr-only">(current)</span></a>
+          </li>
+          <%}%>
+          <li class="nav-item">
+            <a class="nav-link" href="/register">Register</a>
+          </li>
+        </ul>
+        <form action="/login" method="get" class="form-inline my-2 my-lg-0">
+          <button name="lg_out_btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+        </form>
+        <%}%>
+    </div>
+    
+  </nav>

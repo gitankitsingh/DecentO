@@ -1,0 +1,37 @@
+<body>
+        <% include partials/head.ejs %>
+        <% include partials/navigation.ejs %>
+        
+        
+        <main role="main">
+          
+              <!-- Main jumbotron for a primary marketing message or call to action -->
+              <div class="jumbotron">
+                <div class="container">
+                  <% if(locals.message = 1) { %> 
+                  <h2 class="display-3">You have succesfully Created a new campaign</h1>
+                  <h5></h3>
+                  <hr/><br/><br/>
+                  <h4>Campaign Id: <%=campaign_id%> </h4>
+                  <hr/>
+                  <%} %>
+                  <%=camp_details%>
+
+                    <table class="table table-primary" style="color:#fff;text-align:center justify;">
+                     
+                      
+                    </table>
+
+                </div>
+              </div>
+          
+              <div class="container">
+              </div> <!-- /container -->
+          
+            </main>
+          
+        
+        <% include partials/footer.ejs %>
+        
+        </body>
+        </html>

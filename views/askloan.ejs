@@ -1,0 +1,56 @@
+<body>
+        <% include partials/head.ejs %>
+
+        <div class="container">
+        <% include partials/navigation.ejs %>
+        
+        
+        <main role="main">
+          
+              <!-- Main jumbotron for a primary marketing message or call to action -->
+                <div class="container"><br/>
+                  <h4 class="display-5" style="text-align:center;">Apply For a Loan</h4><hr/>
+                </div>  
+
+                <div class="container" id="askLoan_box">
+                    
+                        <form action="/askLoan" method="post" class="form-signin" >
+                        <br/>
+                            <div class="form-group">
+                              <label for="amount_in_ethers" class="sr-only">Amount in ethers</label>
+                              <input type="text" id="amount_in_ethers" name="amount_in_ethers" class="form-control" placeholder="Amount in ethers" required autofocus><br/>
+                            </div> 
+              
+                            <div class="form-group">
+                                <label for="interest_percentage"  class="sr-only">Interest </label>
+                                <input type="text" name="interest" id="interest_percentage" class="form-control" placeholder="interest_percentage" required><br/>
+                              </div>
+
+                            <div class="form-group">
+                              <label for="emi"  class="sr-only">EMI</label>
+                              <input type="text" name="emi" id="emi" class="form-control" placeholder="EMI" required><br/>
+                            </div>
+              
+                            <div class="form-group">    
+                              <label for="days_required"  class="sr-only">Days required to repay</label>
+                              <input type="text" id="time_required" name="time_required" class="form-control" placeholder="Time required to repay" required><br/>
+                            </div>  
+
+                            <div class="form-group">    
+                                <label for="days_required"  class="sr-only">Days required to repay</label>
+                                <input type="password" id="time_required" name="acc_pass" class="form-control" placeholder="Password" required><br/>
+                              </div>  
+                            <div class="form-group"> 
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">Apply</button>
+                            </div>    
+                            </form>
+                     
+                    </div>
+        </main>
+          
+        
+        <% include partials/footer.ejs %>
+      </div>
+        
+        </body>
+        </html>

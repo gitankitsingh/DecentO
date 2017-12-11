@@ -1,0 +1,54 @@
+<body>
+        <% include partials/head.ejs %>
+        <% include partials/navigation.ejs %>
+        
+        
+        <main role="main">
+          
+              <!-- Main jumbotron for a primary marketing message or call to action -->
+              <div class="jumbotron">
+                <div class="container">
+                  <h2 class="display-3">You have succesfully Applied for Loan</h1>
+                  <h5>In the mean time wait for someone to review your loan application, so that interested parties can contact you</h3>
+                  <hr/><br/><br/>
+                  <h4>Loan Id: <%=loan_details["loanId"]%></h4>
+                  <hr/>
+                    <table class="table table-primary" style="color:#fff;text-align:center justify;">
+                     
+                      <tbody>
+                        <tr class="bg-primary">
+                          <th scope="row">Amount</th>
+                          <td><%=loan_details["Amount"] %></td>
+                        </tr>
+                        <tr class="bg-primary">
+                          <th scope="row">EMI</th>
+                         
+                          <td><%=loan_details["EMI"] %></td>
+                        </tr>
+                        <tr class="bg-primary">
+                          <th scope="row">Interest</th>
+                          
+                          <td><%=loan_details["Interest"] %></td>
+                        </tr>
+                        <tr class="bg-primary">
+                          <th scope="row">Time Required</th>
+                        
+                          <td><%=loan_details["Time"] %></td>
+                    
+                        </tr>
+                      </tbody>
+                    </table>
+
+                </div>
+              </div>
+          
+              <div class="container">
+              </div> <!-- /container -->
+          
+            </main>
+          
+        
+        <% include partials/footer.ejs %>
+        
+        </body>
+        </html>
